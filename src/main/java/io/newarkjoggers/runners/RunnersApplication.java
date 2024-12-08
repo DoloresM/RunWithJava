@@ -16,4 +16,4 @@ public class RunnersApplication {
 		//Calling method from generated class instance
 		System.out.println(welcomeMessage.getWelcomeMessage());
 	}
-};
+}
