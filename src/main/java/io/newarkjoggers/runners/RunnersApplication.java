@@ -1,4 +1,4 @@
-package io.newarkjoggers.runners.user;
+package io.newarkjoggers.runners;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
