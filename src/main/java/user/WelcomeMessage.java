@@ -1,4 +1,4 @@
-package foo.bar;
+package user;
 
 import org.springframework.stereotype.Component;
 
