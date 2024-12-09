@@ -1,4 +1,4 @@
-package user;
+package io.newarkjoggers.runners.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import run.Location;
-import run.Run;
+import io.newarkjoggers.runners.run.Location;
+import io.newarkjoggers.runners.run.Run;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

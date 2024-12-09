@@ -1,4 +1,4 @@
-package run;
+package io.newarkjoggers.runners.run;
 
 import java.time.LocalDateTime;
 

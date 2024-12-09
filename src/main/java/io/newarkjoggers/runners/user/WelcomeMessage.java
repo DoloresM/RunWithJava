@@ -1,4 +1,4 @@
-package user;
+package io.newarkjoggers.runners.user;
 
 import org.springframework.stereotype.Component;
 
