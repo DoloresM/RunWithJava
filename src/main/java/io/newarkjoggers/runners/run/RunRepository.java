@@ -19,6 +19,12 @@ public class RunRepository {
     }
 
 
+Run findById(Integer id){
+        return runs.stream()
+                .filter(run -> run.id() == id)
+                .findFirst()
+                .get();
+}
 
     @PostConstruct // allows for these methods to get called/ initiate the data, creating a list.
     private void init() {
