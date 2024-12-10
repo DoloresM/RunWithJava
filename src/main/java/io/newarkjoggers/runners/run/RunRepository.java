@@ -18,7 +18,9 @@ public class RunRepository {
         return runs;
     }
 
-    @PostConstruct
+
+
+    @PostConstruct // allows for these methods to get called/ initiate the data, creating a list.
     private void init() {
         runs.add(new Run( 1,
                 "Monday Morning Run",
@@ -33,4 +35,6 @@ public class RunRepository {
                 6,
                 Location.INDOOR));
     }
+
+
 }
