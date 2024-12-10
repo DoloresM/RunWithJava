@@ -19,7 +19,7 @@ public class RunController {
 
     //indicating which type of rest controller and rout(web page) to execute code on
     @GetMapping("/api/runs")
-    Run findAll() {
+    List<Run> findAll() {
 
         return runRepository.findAll();
     }
