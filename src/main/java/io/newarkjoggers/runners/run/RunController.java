@@ -1,5 +1,6 @@
 package io.newarkjoggers.runners.run;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,15 +43,16 @@ public class RunController {
     // annotation indicating to send back the status of the HTTP request to how post created
     @ResponseStatus(HttpStatus.CREATED)
     //post route, sending a body to the server w/RequestBody annotation
-    @PostMapping()
-    void create(@RequestBody Run run){
+    @PostMapping("")
+    //validation annotation from validation dependency added to leverage data validation during creation
+    void create(@Valid @RequestBody Run run){
         runRepository.create(run);
     }
 
     //PUT
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@RequestBody Run run, @PathVariable Integer id){
+    void update(@Valid @RequestBody Run run, @PathVariable Integer id){
         runRepository.update(run,id);
     }
 
