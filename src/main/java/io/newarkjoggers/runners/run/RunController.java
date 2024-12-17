@@ -2,7 +2,6 @@ package io.newarkjoggers.runners.run;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +12,7 @@ import java.util.Optional;
 // declaring a default path for all request endpoints
 @RequestMapping("/api/runs")
 
+// CRUD class
 public class RunController {
 
     //declaring instance of object/data
@@ -33,18 +33,35 @@ public class RunController {
     Run findById(@PathVariable Integer id){
         Optional<Run> run = runRepository.findById(id);
         if(run.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Run not found.");
+            throw new RunNotFoundException();
         }
         return run.get();
     }
+
     // POST
-    // annotation indicating to send back the status of the HTTP request
+    // annotation indicating to send back the status of the HTTP request to how post created
     @ResponseStatus(HttpStatus.CREATED)
     //post route, sending a body to the server w/RequestBody annotation
     @PostMapping()
     void create(@RequestBody Run run){
         runRepository.create(run);
     }
+
+    //PUT
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update(@RequestBody Run run, @PathVariable Integer id){
+        runRepository.update(run,id);
+    }
+
+    //DELETE
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id){
+        runRepository.delete(id);
+    }
+
+
 
 
 
