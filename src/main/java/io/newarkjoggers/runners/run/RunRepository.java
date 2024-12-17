@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RunRepository {
@@ -18,13 +19,17 @@ public class RunRepository {
         return runs;
     }
 
+    //method for adding a new run / method to be implemented in post request
+    void create(Run run){
+        runs.add(run);
+    }
 
-Run findById(Integer id){
-        return runs.stream()
-                .filter(run -> run.id() == id)
-                .findFirst()
-                .get();
-}
+
+    Optional<Run> findById(Integer id){
+            return runs.stream()
+                    .filter(run -> run.id() == id)
+                    .findFirst();
+    }
 
     @PostConstruct // allows for these methods to get called/ initiate the data, creating a list.
     private void init() {
